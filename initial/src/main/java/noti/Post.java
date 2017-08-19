@@ -72,6 +72,7 @@ public class Post {
     private String userName;
     private String publishedTime;
     private String updatedTime;
+    private Integer replyCount;
 
     @DBRef
     private List<Reply> replies = new ArrayList<>();
@@ -132,9 +133,16 @@ public class Post {
         return updatedTime;
     }
 
-    public void setUpdatedTime(Date updatedTime) {
+    public void setUpdatedTime(String updatedTime) {
         this.updatedTime = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date());
     }
 
 
+    public Integer getReplyCount() {
+        return replyCount;
+    }
+
+    public void setReplyCount(Integer replyCount) {
+        this.replyCount = replyCount;
+    }
 }

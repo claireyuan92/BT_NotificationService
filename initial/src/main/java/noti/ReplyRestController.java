@@ -27,12 +27,14 @@ public class ReplyRestController {
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    Post createReply(@PathVariable String postId, @RequestBody Reply inputReply ) {
+    Post createReply(@PathVariable String postId, @RequestBody Reply inputReply) {
         Reply reply = _replyRepository.save(inputReply);
-        Post post =  _postRepository.findPostById(postId);
+        Post post = _postRepository.findPostById(postId);
+
         List<Reply> replies = _postRepository.findPostById(postId).getReplies();
         replies.add(reply);
         post.setReplies(replies);
+        post.setReplyCount(post.getReplyCount() + 1);
         return _postRepository.save(post);
     }
 

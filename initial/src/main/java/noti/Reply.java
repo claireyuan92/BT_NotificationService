@@ -53,6 +53,6 @@ class Reply {
     }
 
     public void setTimestamp(Date timestamp) {
-        this.timestamp = this.timestamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date());;
+        this.timestamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date());;
     }
 }
