@@ -21,6 +21,14 @@ public class Notification {
         this.expirationTime = userInputexpirationTime == null ? new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date(Long.MAX_VALUE)) : userInputexpirationTime;
     }
 
+    public boolean isTop() {
+        return isTop;
+    }
+
+    public void setTop(boolean top) {
+        isTop = top;
+    }
+
     // {
 //     “_id”: ObjectId(),
 //     “courseId”: reference,
@@ -68,6 +76,7 @@ public class Notification {
     private String expirationTime;
     private String link = "";
     private List<Reader> readers = new ArrayList<>();
+    private boolean isTop = false;
 
     public String getCourseId() {
         return courseId;
