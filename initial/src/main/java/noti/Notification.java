@@ -56,7 +56,7 @@ public class Notification {
     private String subject;
     private String content;
     private String timestamp;
-    private URL link = new URL("");
+    private String link = "";
     private List<Reader> readers = new ArrayList<>();
 
     public String getCourseId() {
@@ -123,13 +123,13 @@ public class Notification {
         this.timestamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date());
     }
 
-    public URL getLink() {
+    public String getLink() {
         return link;
     }
 
-    public void setLink(URL link) throws MalformedURLException {
+    public void setLink(String link) throws MalformedURLException {
         if (link == null) {
-            this.link = new URL("");
+            this.link = "";
         }
         this.link = link;
     }
