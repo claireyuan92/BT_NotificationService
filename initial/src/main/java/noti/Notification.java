@@ -2,13 +2,19 @@ package noti;
 
 import org.springframework.data.annotation.Id;
 
+import java.net.MalformedURLException;
 import java.net.URL;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Date;
 
 public class Notification {
 
-// {
+    public Notification() throws MalformedURLException {
+    }
+
+    // {
 //     “_id”: ObjectId(),
 //     “courseId”: reference,
 //     “courseName”: reference,
@@ -49,9 +55,9 @@ public class Notification {
     private String priority;
     private String subject;
     private String content;
-    private Date timestamp;
-    private URL link;
-    private List<Reader> readers;
+    private String timestamp;
+    private URL link = new URL("");
+    private List<Reader> readers = new ArrayList<>();
 
     public String getCourseId() {
 	return courseId;
@@ -109,19 +115,22 @@ public class Notification {
         this.content = content;
     }
 
-    public Date getTimestamp() {
+    public String getTimestamp() {
         return timestamp;
     }
 
-    public void setTimestamp(Date timestamp) {
-        this.timestamp = new Date();
+    public void setTimestamp(String timestamp) {
+        this.timestamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date());
     }
 
     public URL getLink() {
         return link;
     }
 
-    public void setLink(URL link) {
+    public void setLink(URL link) throws MalformedURLException {
+        if (link == null) {
+            this.link = new URL("");
+        }
         this.link = link;
     }
 
@@ -130,6 +139,9 @@ public class Notification {
     }
 
     public void setReaders(List<Reader> readers) {
+        if ( readers == null ) {
+            this.readers = new ArrayList<>();
+        }
         this.readers = readers;
     }
 
