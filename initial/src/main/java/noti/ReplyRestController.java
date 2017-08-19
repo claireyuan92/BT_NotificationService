@@ -13,10 +13,12 @@ import java.util.List;
 public class ReplyRestController {
 
     private final PostRepository _postRepository;
+    private final ReplyRepository _replyRepository;
 
     @Autowired
-    public ReplyRestController(PostRepository postRepository) {
+    public ReplyRestController(PostRepository postRepository, ReplyRepository replyRepository) {
         _postRepository = postRepository;
+        _replyRepository = replyRepository;
     }
 
     @RequestMapping(method = RequestMethod.GET)
@@ -25,7 +27,8 @@ public class ReplyRestController {
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    Post createReply(@PathVariable String postId, @RequestBody Reply reply) {
+    Post createReply(@PathVariable String postId, @RequestBody Reply inputReply ) {
+        Reply reply = _replyRepository.save(inputReply);
         Post post =  _postRepository.findPostById(postId);
         List<Reply> replies = _postRepository.findPostById(postId).getReplies();
         replies.add(reply);
