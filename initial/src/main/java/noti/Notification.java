@@ -13,6 +13,14 @@ public class Notification {
     public Notification() throws MalformedURLException {
     }
 
+    public String getExpirationTime() {
+        return expirationTime;
+    }
+
+    public void setExpirationTime(String expirationTime) {
+        this.expirationTime = expirationTime;
+    }
+
     // {
 //     “_id”: ObjectId(),
 //     “courseId”: reference,
@@ -55,6 +63,7 @@ public class Notification {
     private String subject;
     private String content;
     private String timestamp;
+    private String expirationTime;
     private String link = "";
     private List<Reader> readers = new ArrayList<>();
 
