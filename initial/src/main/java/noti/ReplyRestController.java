@@ -9,7 +9,7 @@ import java.util.List;
  * Created by claireyuan on 8/18/17.
  */
 @RestController
-@RequestMapping("/{post_id}/reply")
+@RequestMapping("post/{postId}/reply")
 public class ReplyRestController {
 
     private final PostRepository _postRepository;
