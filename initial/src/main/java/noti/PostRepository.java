@@ -11,6 +11,6 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 @RepositoryRestResource(collectionResourceRel = "post", path = "post")
 public interface PostRepository extends MongoRepository<Post, String> {
 
-    List<Post> findByCourseId(@Param("courseId") String courseId);
+    Post findPostById(@Param("id") String id);
 
 }
