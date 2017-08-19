@@ -15,6 +15,6 @@ import java.util.List;
 @RepositoryRestResource(collectionResourceRel = "reply", path = "reply")
 public interface ReplyRepository extends MongoRepository<Reply, String> {
 
-    List<Post> findByCourseId(@Param("courseId") String courseId);
+    List<Post> findByReplyId(@Param("id") String id);
 
 }
