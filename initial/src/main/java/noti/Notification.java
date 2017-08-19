@@ -14,11 +14,11 @@ public class Notification {
     }
 
     public String getExpirationTime() {
-        return expirationTime;
+        return expirationTime == null ? new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date(Long.MAX_VALUE)) : expirationTime;
     }
 
-    public void setExpirationTime(String expirationTime) {
-        this.expirationTime = expirationTime;
+    public void setExpirationTime(String userInputexpirationTime) {
+        this.expirationTime = userInputexpirationTime == null ? new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date(Long.MAX_VALUE)) : userInputexpirationTime;
     }
 
     // {
@@ -45,15 +45,17 @@ public class Notification {
         String _studentName;
         boolean _hasRead = false;
 
-        public void setHasRead(boolean hasRead){
+        public void setHasRead(boolean hasRead) {
             _hasRead = hasRead;
         }
+
         public boolean getHasread() {
             return _hasRead;
         }
     }
 
-    @Id private String id;
+    @Id
+    private String id;
 
     private String courseId;
     private String courseName;
@@ -68,19 +70,19 @@ public class Notification {
     private List<Reader> readers = new ArrayList<>();
 
     public String getCourseId() {
-	return courseId;
+        return courseId;
     }
 
     public void setCourseId(String courseId) {
-	this.courseId = courseId;
+        this.courseId = courseId;
     }
 
     public String getCourseName() {
-	return courseName;
+        return courseName;
     }
 
     public void setCourseName(String courseName) {
-	this.courseName = courseName;
+        this.courseName = courseName;
     }
 
     public String getUserId() {
@@ -125,7 +127,7 @@ public class Notification {
 
     public String getTimestamp() {
 
-        return timestamp == null? new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date()):timestamp;
+        return timestamp == null ? new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date()) : timestamp;
     }
 
     public void setTimestamp(String timestamp) {
@@ -148,7 +150,7 @@ public class Notification {
     }
 
     public void setReaders(List<Reader> readers) {
-        if ( readers == null ) {
+        if (readers == null) {
             this.readers = new ArrayList<>();
         }
         this.readers = readers;
