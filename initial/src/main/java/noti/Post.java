@@ -10,32 +10,7 @@ import java.util.Date;
 import java.util.List;
 
 public class Post {
-    public List<String> getTags() {
-        return tags;
-    }
 
-    public void setTags(List<String> tags) {
-        this.tags = tags;
-    }
-
-    public List<Reply> getReplies() {
-        return replies;
-    }
-
-    public void setReplies(List<Reply> replies) {
-        if (replies == null) {
-            this.replies = new ArrayList<>();
-        }
-        this.replies = replies;
-    }
-
-    public String getCourseName() {
-        return courseName;
-    }
-
-    public void setCourseName(String courseName) {
-        this.courseName = courseName;
-    }
 
 //    {
 //	“_id”: ObjectId(),
@@ -63,16 +38,16 @@ public class Post {
 
     @Id private String id;
 
-    private String courseId;
-    private String courseName;
+    private String courseId = "";
+    private String courseName = "";
     private List<String> tags = new ArrayList<>();
-    private String subject;
-    private String content;
-    private String userId;
-    private String userName;
+    private String subject = "";
+    private String content = "";
+    private String userId = "";
+    private String userName = "";
     private String publishedTime;
     private String updatedTime;
-    private Integer replyCount;
+    private Integer replyCount = 0;
 
     @DBRef
     private List<Reply> replies = new ArrayList<>();
@@ -121,16 +96,15 @@ public class Post {
     }
 
     public String getPublishedTime() {
-        return publishedTime;
+        return publishedTime == null ? new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date()): publishedTime;
     }
 
     public void setPublishedTime(String publishedTime) {
-
         this.publishedTime = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date());
     }
 
     public String getUpdatedTime() {
-        return updatedTime;
+        return updatedTime == null ? new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date()): updatedTime;
     }
 
     public void setUpdatedTime(String updatedTime) {
@@ -144,5 +118,31 @@ public class Post {
 
     public void setReplyCount(Integer replyCount) {
         this.replyCount = replyCount;
+    }
+    public List<String> getTags() {
+        return tags;
+    }
+
+    public void setTags(List<String> tags) {
+        this.tags = tags;
+    }
+
+    public List<Reply> getReplies() {
+        return replies;
+    }
+
+    public void setReplies(List<Reply> replies) {
+        if (replies == null) {
+            this.replies = new ArrayList<>();
+        }
+        this.replies = replies;
+    }
+
+    public String getCourseName() {
+        return courseName;
+    }
+
+    public void setCourseName(String courseName) {
+        this.courseName = courseName;
     }
 }

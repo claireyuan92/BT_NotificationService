@@ -115,7 +115,8 @@ public class Notification {
     }
 
     public String getTimestamp() {
-        return timestamp;
+
+        return timestamp == null? new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date()):timestamp;
     }
 
     public void setTimestamp(String timestamp) {

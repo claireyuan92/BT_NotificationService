@@ -49,10 +49,11 @@ class Reply {
     }
 
     public String getTimestamp() {
-        return timestamp;
+
+        return timestamp == null? new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date()): timestamp;
     }
 
     public void setTimestamp(Date timestamp) {
-        this.timestamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date());;
+        this.timestamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date());
     }
 }
