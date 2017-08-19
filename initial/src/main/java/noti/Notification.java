@@ -4,6 +4,7 @@ import org.springframework.data.annotation.Id;
 
 import java.net.URL;
 import java.util.List;
+import java.util.Date;
 
 public class Notification {
 
@@ -48,7 +49,7 @@ public class Notification {
     private String priority;
     private String subject;
     private String content;
-    private String timestamp;
+    private Date timestamp;
     private URL link;
     private List<Reader> readers;
 
@@ -108,12 +109,12 @@ public class Notification {
         this.content = content;
     }
 
-    public String getTimestamp() {
+    public Date getTimestamp() {
         return timestamp;
     }
 
-    public void setTimestamp(String timestamp) {
-        this.timestamp = timestamp;
+    public void setTimestamp(Date timestamp) {
+        this.timestamp = new Date();
     }
 
     public URL getLink() {
