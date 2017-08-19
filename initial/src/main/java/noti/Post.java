@@ -48,6 +48,7 @@ public class Post {
     private String publishedTime;
     private String updatedTime;
     private Integer replyCount = 0;
+    private Boolean isTop = false;
 
     @DBRef
     private List<Reply> replies = new ArrayList<>();
@@ -144,5 +145,13 @@ public class Post {
 
     public void setCourseName(String courseName) {
         this.courseName = courseName;
+    }
+
+    public Boolean getTop() {
+        return isTop;
+    }
+
+    public void setTop(Boolean top) {
+        isTop = top == null? false: top;
     }
 }
