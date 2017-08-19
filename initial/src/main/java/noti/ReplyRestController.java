@@ -9,6 +9,7 @@ import java.util.List;
  * Created by claireyuan on 8/18/17.
  */
 @RestController
+@CrossOrigin(origins = "*")
 @RequestMapping("post/{postId}/reply")
 public class ReplyRestController {
 
